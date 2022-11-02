@@ -22,4 +22,16 @@ Iterative：
           
           完全是preorder的方法，只是左右换了一下。最后再倒序一下
           
-     
+          
+   
+   
+  方法三：recursive - 高级
+  （开心哦，你也学会偷懒了）
+  
+        class Solution:
+            def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+                if not root:
+                    return []
+                else:
+                    return self.postorderTraversal(root.left) + self.postorderTraversal(root.right) + [root.val]
+
