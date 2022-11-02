@@ -1,8 +1,7 @@
 # leetcode145-postOrder
 
 
-Iterative：
-方法一：用反过来的preorder
+方法一：Iterative：用反过来的preorder
 
     class Solution:
       def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
@@ -22,10 +21,29 @@ Iterative：
           
           完全是preorder的方法，只是左右换了一下。最后再倒序一下
           
-          
+方法二：还是倒叙呢
+  
+  class Solution:
+        def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+
+            stack = [root]
+            res = []
+
+            while stack:
+                cur = stack.pop()
+
+                if cur:
+                    res.append(cur.val)
+                    stack.append(cur.right)
+                    stack.append(cur.left)
+
+            return res[::-1]
+    
    
    
-  方法三：recursive - 高级
+   
+   
+方法三：recursive - 高级
   （开心哦，你也学会偷懒了）
   
         class Solution:
